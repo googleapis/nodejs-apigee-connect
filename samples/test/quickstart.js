@@ -42,7 +42,9 @@ describe('Quickstart', () => {
   });
 
   it('should run quickstart', async () => {
-    const stdout = execSync(`node ./quickstart.js ${projectId} apigee_mart`, {cwd});
+    const stdout = execSync(`node ./quickstart.js ${projectId} apigee_mart`, {
+      cwd,
+    });
     assert.match(stdout, /\[\]/);
   });
 });
