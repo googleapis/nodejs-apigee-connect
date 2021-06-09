@@ -28,9 +28,10 @@ import {PassThrough} from 'stream';
 import {protobuf} from 'google-gax';
 
 function generateSampleMessage<T extends object>(instance: T) {
-  const filledObject = (
-    instance.constructor as typeof protobuf.Message
-  ).toObject(instance as protobuf.Message<T>, {defaults: true});
+  const filledObject = (instance.constructor as typeof protobuf.Message).toObject(
+    instance as protobuf.Message<T>,
+    {defaults: true}
+  );
   return (instance.constructor as typeof protobuf.Message).fromObject(
     filledObject
   ) as T;
@@ -264,8 +265,9 @@ describe('v1.ConnectionServiceClient', () => {
           new protos.google.cloud.apigeeconnect.v1.Connection()
         ),
       ];
-      client.innerApiCalls.listConnections =
-        stubSimpleCallWithCallback(expectedResponse);
+      client.innerApiCalls.listConnections = stubSimpleCallWithCallback(
+        expectedResponse
+      );
       const promise = new Promise((resolve, reject) => {
         client.listConnections(
           request,
@@ -343,8 +345,9 @@ describe('v1.ConnectionServiceClient', () => {
           new protos.google.cloud.apigeeconnect.v1.Connection()
         ),
       ];
-      client.descriptors.page.listConnections.createStream =
-        stubPageStreamingCall(expectedResponse);
+      client.descriptors.page.listConnections.createStream = stubPageStreamingCall(
+        expectedResponse
+      );
       const stream = client.listConnectionsStream(request);
       const promise = new Promise((resolve, reject) => {
         const responses: protos.google.cloud.apigeeconnect.v1.Connection[] = [];
@@ -369,9 +372,10 @@ describe('v1.ConnectionServiceClient', () => {
           .calledWith(client.innerApiCalls.listConnections, request)
       );
       assert.strictEqual(
-        (
-          client.descriptors.page.listConnections.createStream as SinonStub
-        ).getCall(0).args[2].otherArgs.headers['x-goog-request-params'],
+        (client.descriptors.page.listConnections
+          .createStream as SinonStub).getCall(0).args[2].otherArgs.headers[
+          'x-goog-request-params'
+        ],
         expectedHeaderRequestParams
       );
     });
@@ -388,8 +392,10 @@ describe('v1.ConnectionServiceClient', () => {
       request.parent = '';
       const expectedHeaderRequestParams = 'parent=';
       const expectedError = new Error('expected');
-      client.descriptors.page.listConnections.createStream =
-        stubPageStreamingCall(undefined, expectedError);
+      client.descriptors.page.listConnections.createStream = stubPageStreamingCall(
+        undefined,
+        expectedError
+      );
       const stream = client.listConnectionsStream(request);
       const promise = new Promise((resolve, reject) => {
         const responses: protos.google.cloud.apigeeconnect.v1.Connection[] = [];
@@ -413,9 +419,10 @@ describe('v1.ConnectionServiceClient', () => {
           .calledWith(client.innerApiCalls.listConnections, request)
       );
       assert.strictEqual(
-        (
-          client.descriptors.page.listConnections.createStream as SinonStub
-        ).getCall(0).args[2].otherArgs.headers['x-goog-request-params'],
+        (client.descriptors.page.listConnections
+          .createStream as SinonStub).getCall(0).args[2].otherArgs.headers[
+          'x-goog-request-params'
+        ],
         expectedHeaderRequestParams
       );
     });
@@ -442,8 +449,9 @@ describe('v1.ConnectionServiceClient', () => {
           new protos.google.cloud.apigeeconnect.v1.Connection()
         ),
       ];
-      client.descriptors.page.listConnections.asyncIterate =
-        stubAsyncIterationCall(expectedResponse);
+      client.descriptors.page.listConnections.asyncIterate = stubAsyncIterationCall(
+        expectedResponse
+      );
       const responses: protos.google.cloud.apigeeconnect.v1.IConnection[] = [];
       const iterable = client.listConnectionsAsync(request);
       for await (const resource of iterable) {
@@ -451,15 +459,15 @@ describe('v1.ConnectionServiceClient', () => {
       }
       assert.deepStrictEqual(responses, expectedResponse);
       assert.deepStrictEqual(
-        (
-          client.descriptors.page.listConnections.asyncIterate as SinonStub
-        ).getCall(0).args[1],
+        (client.descriptors.page.listConnections
+          .asyncIterate as SinonStub).getCall(0).args[1],
         request
       );
       assert.strictEqual(
-        (
-          client.descriptors.page.listConnections.asyncIterate as SinonStub
-        ).getCall(0).args[2].otherArgs.headers['x-goog-request-params'],
+        (client.descriptors.page.listConnections
+          .asyncIterate as SinonStub).getCall(0).args[2].otherArgs.headers[
+          'x-goog-request-params'
+        ],
         expectedHeaderRequestParams
       );
     });
@@ -476,26 +484,27 @@ describe('v1.ConnectionServiceClient', () => {
       request.parent = '';
       const expectedHeaderRequestParams = 'parent=';
       const expectedError = new Error('expected');
-      client.descriptors.page.listConnections.asyncIterate =
-        stubAsyncIterationCall(undefined, expectedError);
+      client.descriptors.page.listConnections.asyncIterate = stubAsyncIterationCall(
+        undefined,
+        expectedError
+      );
       const iterable = client.listConnectionsAsync(request);
       await assert.rejects(async () => {
-        const responses: protos.google.cloud.apigeeconnect.v1.IConnection[] =
-          [];
+        const responses: protos.google.cloud.apigeeconnect.v1.IConnection[] = [];
         for await (const resource of iterable) {
           responses.push(resource!);
         }
       });
       assert.deepStrictEqual(
-        (
-          client.descriptors.page.listConnections.asyncIterate as SinonStub
-        ).getCall(0).args[1],
+        (client.descriptors.page.listConnections
+          .asyncIterate as SinonStub).getCall(0).args[1],
         request
       );
       assert.strictEqual(
-        (
-          client.descriptors.page.listConnections.asyncIterate as SinonStub
-        ).getCall(0).args[2].otherArgs.headers['x-goog-request-params'],
+        (client.descriptors.page.listConnections
+          .asyncIterate as SinonStub).getCall(0).args[2].otherArgs.headers[
+          'x-goog-request-params'
+        ],
         expectedHeaderRequestParams
       );
     });

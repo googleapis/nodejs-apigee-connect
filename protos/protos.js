@@ -1487,11 +1487,11 @@
     
                         /**
                          * Payload action.
-                         * @member {google.cloud.apigeeconnect.v1.Action|null|undefined} action
+                         * @member {google.cloud.apigeeconnect.v1.Action} action
                          * @memberof google.cloud.apigeeconnect.v1.Payload
                          * @instance
                          */
-                        Payload.prototype.action = null;
+                        Payload.prototype.action = 0;
     
                         // OneOf field names bound to virtual getters and setters
                         var $oneOfFields;
@@ -3734,43 +3734,43 @@
     
                 /**
                  * HttpRule get.
-                 * @member {string|null|undefined} get
+                 * @member {string} get
                  * @memberof google.api.HttpRule
                  * @instance
                  */
-                HttpRule.prototype.get = null;
+                HttpRule.prototype.get = "";
     
                 /**
                  * HttpRule put.
-                 * @member {string|null|undefined} put
+                 * @member {string} put
                  * @memberof google.api.HttpRule
                  * @instance
                  */
-                HttpRule.prototype.put = null;
+                HttpRule.prototype.put = "";
     
                 /**
                  * HttpRule post.
-                 * @member {string|null|undefined} post
+                 * @member {string} post
                  * @memberof google.api.HttpRule
                  * @instance
                  */
-                HttpRule.prototype.post = null;
+                HttpRule.prototype.post = "";
     
                 /**
                  * HttpRule delete.
-                 * @member {string|null|undefined} delete
+                 * @member {string} delete
                  * @memberof google.api.HttpRule
                  * @instance
                  */
-                HttpRule.prototype["delete"] = null;
+                HttpRule.prototype["delete"] = "";
     
                 /**
                  * HttpRule patch.
-                 * @member {string|null|undefined} patch
+                 * @member {string} patch
                  * @memberof google.api.HttpRule
                  * @instance
                  */
-                HttpRule.prototype.patch = null;
+                HttpRule.prototype.patch = "";
     
                 /**
                  * HttpRule custom.
