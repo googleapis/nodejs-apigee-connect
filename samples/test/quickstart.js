@@ -29,7 +29,7 @@ const execSync = cmd => cp.execSync(cmd, {encoding: 'utf-8'});
 
 const cwd = path.join(__dirname, '..');
 
-const client = new {TetherClient}();
+const client = new TetherClient();
 
 describe('Quickstart', () => {
   //TODO: remove this if not using the projectId
@@ -42,9 +42,9 @@ describe('Quickstart', () => {
   });
 
   it('should run quickstart', async () => {
-    //TODO: remove this line
-    // eslint-disable-next-line no-unused-vars
-    const stdout = execSync('node ./quickstart.js', {cwd});
-    //assert(stdout, stdout !== null);
+    const stdout = execSync(`node ./quickstart.js ${projectId} apigee_mart`, {
+      cwd,
+    });
+    assert.match(stdout, /\[\]/);
   });
 });
