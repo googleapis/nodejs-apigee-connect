@@ -661,7 +661,7 @@ export namespace google {
                     public streamInfo?: (google.cloud.apigeeconnect.v1.IStreamInfo|null);
 
                     /** Payload action. */
-                    public action: (google.cloud.apigeeconnect.v1.Action|keyof typeof google.cloud.apigeeconnect.v1.Action);
+                    public action?: (google.cloud.apigeeconnect.v1.Action|keyof typeof google.cloud.apigeeconnect.v1.Action|null);
 
                     /** Payload kind. */
                     public kind?: ("httpRequest"|"streamInfo"|"action");
@@ -1554,19 +1554,19 @@ export namespace google {
             public selector: string;
 
             /** HttpRule get. */
-            public get: string;
+            public get?: (string|null);
 
             /** HttpRule put. */
-            public put: string;
+            public put?: (string|null);
 
             /** HttpRule post. */
-            public post: string;
+            public post?: (string|null);
 
             /** HttpRule delete. */
-            public delete: string;
+            public delete?: (string|null);
 
             /** HttpRule patch. */
-            public patch: string;
+            public patch?: (string|null);
 
             /** HttpRule custom. */
             public custom?: (google.api.ICustomHttpPattern|null);
