@@ -71,7 +71,6 @@ const {ConnectionServiceClient} = require('@google-cloud/apigee-connect');
 // eslint-disable-next-line no-unused-vars
 const client = new ConnectionServiceClient();
 
-
 async function listConnections() {
   const connections = await client.listConnections({
     parent: `projects/${projectId}/endpoints/${endpoint}`,
