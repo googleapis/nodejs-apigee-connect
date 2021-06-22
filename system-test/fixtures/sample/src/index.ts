@@ -19,7 +19,7 @@
 import {
   ConnectionServiceClient,
   TetherClient,
-} from '@google-cloud/apigee-connect';
+} from '@google-cloud/apigeeconnect';
 
 // check that the client class type name can be used
 function doStuffWithConnectionServiceClient(client: ConnectionServiceClient) {
