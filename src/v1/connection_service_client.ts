@@ -374,6 +374,10 @@ export class ConnectionServiceClient {
    *   Please see the
    *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
    *   for more details and examples.
+   *
+   * @example <caption>include:samples/generated/v1/connection_service.list_connections.js</caption>
+   * region_tag:apigeeconnect_list_connections_sample
+   *
    */
   listConnections(
     request?: protos.google.cloud.apigeeconnect.v1.IListConnectionsRequest,
@@ -447,6 +451,10 @@ export class ConnectionServiceClient {
    *   Please see the
    *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
    *   for more details and examples.
+   *
+   * @example <caption>include:samples/generated/v1/connection_service.list_connections.js</caption>
+   * region_tag:apigeeconnect_list_connections_sample
+   *
    */
   listConnectionsStream(
     request?: protos.google.cloud.apigeeconnect.v1.IListConnectionsRequest,
@@ -460,7 +468,8 @@ export class ConnectionServiceClient {
       gax.routingHeader.fromParams({
         parent: request.parent || '',
       });
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listConnections'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listConnections.createStream(
       this.innerApiCalls.listConnections as gax.GaxCall,
@@ -503,6 +512,10 @@ export class ConnectionServiceClient {
    * for await (const response of iterable) {
    *   // process response
    * }
+   *
+   * @example <caption>include:samples/generated/v1/connection_service.list_connections.js</caption>
+   * region_tag:apigeeconnect_list_connections_sample
+   *
    */
   listConnectionsAsync(
     request?: protos.google.cloud.apigeeconnect.v1.IListConnectionsRequest,
@@ -517,7 +530,8 @@ export class ConnectionServiceClient {
         parent: request.parent || '',
       });
     options = options || {};
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listConnections'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listConnections.asyncIterate(
       this.innerApiCalls['listConnections'] as GaxCall,

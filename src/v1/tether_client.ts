@@ -316,6 +316,10 @@ export class TetherClient {
    * stream.on('end', () => { ... });
    * stream.write(request);
    * stream.end();
+   *
+   * @example <caption>include:samples/generated/v1/tether.egress.js</caption>
+   * region_tag:apigeeconnect_egress_sample
+   *
    */
   egress(options?: CallOptions): gax.CancellableStream {
     this.initialize();
