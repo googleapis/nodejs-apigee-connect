@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
 function main() {
@@ -60,16 +59,21 @@ function main() {
 
   async function callEgress() {
     // Construct request
-    const request = {
-    };
+    const request = {};
 
     // Run request
     const stream = await apigeeconnectClient.egress();
-    stream.on('data', (response) => { console.log(response) });
-    stream.on('error', (err) => { throw(err) });
-    stream.on('end', () => { /* API call completed */ });
+    stream.on('data', response => {
+      console.log(response);
+    });
+    stream.on('error', err => {
+      throw err;
+    });
+    stream.on('end', () => {
+      /* API call completed */
+    });
     stream.write(request);
-    stream.end(); 
+    stream.end();
   }
 
   callEgress();
